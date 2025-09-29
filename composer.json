@@ -1,0 +1,34 @@
+{
+    "name": "synapxlab/cookie-core",
+    "description": "Bannière de consentement cookies RGPD ultra-légère (18KB) - Version light sans logging intégré (JS pur, zéro dépendance)",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "cookie-consent",
+        "rgpd",
+        "gdpr",
+        "cookie-banner",
+        "vanilla-js",
+        "lightweight",
+        "cnil",
+        "privacy"
+    ],
+    "homepage": "https://github.com/synapxLab/cookie-core",
+    "authors": [
+        {
+            "name": "Laurent Lockness",
+            "email": "synapxLab@lockness-informatique.fr",
+            "homepage": "https://synapx.fr",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/synapxLab/cookie-core/issues",
+        "source": "https://github.com/synapxLab/cookie-core"
+    },
+    "require": {
+        "php": ">=7.2"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

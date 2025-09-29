@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🍪 Cookie Banner Core (Light) – RGPD sans tracking ni logging</title>
+  <meta name="description" content="Bannière cookies RGPD minimaliste, gratuite et open source. Version light : aucune télémétrie, aucun logger intégré. À vous de gérer la preuve de consentement.">
+  <meta name="keywords" content="RGPD, GDPR, bannière cookies, consentement, gratuit, open source, CNIL">
+  <meta property="og:title" content="Cookie Banner Core (Light) – RGPD sans tracking">
+  <meta property="og:description" content="Version light et gratuite : pas de logging, pas de tracking. Vous gérez votre preuve de consentement.">
+</head>
+<body>
+  <section class="hero-marketing">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h1>🍪 Cookie Banner Core <br><strong>Version Light (sans logging) 18Ko</strong></h1>
+      <p class="tagline">API JavaScript simple et légère pour afficher une bannière et stocker les préférences en local</p>
+    </div>
+  </section>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <!-- Icônes génériques -->
+    <symbol id="ico-pkg" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 7.5 12 3l9 4.5v9L12 21 3 16.5v-9Z"/>
+      <path fill="#fff" d="M12 6.5 6 9.5v5l6 3 6-3v-5l-6-3Z" opacity=".25"/>
+    </symbol>
+    <symbol id="ico-code" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M9.4 16.6 5.8 13l3.6-3.6 1.4 1.4L8.6 13l2.2 2.2-1.4 1.4Zm5.2 0-1.4-1.4 2.2-2.2-2.2-2.2 1.4-1.4L18.2 13l-3.6 3.6Z"/>
+    </symbol>
+
+    <!-- Pastilles lettres (cercle + lettres) -->
+    <!-- Astuce: on garde le visuel cohérent, sans logos brand exacts -->
+    <symbol id="ico-npm" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor"/>
+      <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="system-ui" fill="currentColor">npm</text>
+    </symbol>
+    <symbol id="ico-c" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor"/>
+      <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="system-ui" fill="currentColor">C</text>
+    </symbol>
+  </svg>
+  <main>
+    <nav id="sommaire" aria-label="Sommaire">
+      <h2>Bannière Cookies</h2>
+      <ul>
+        <li><a href="#cookie-core">À propos</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#utilisation">Utilisation</a></li>
+        <li><a href="#demo">Exemple de page (démo)</a></li>
+        <li><a href="#license">Licence</a></li>
+      </ul>
+    </nav>
+
+    <section id="cookie-core">
+      <h2>À propos</h2>
+      <p>
+        Cette page documente la <strong>version light</strong> du projet : (référentiel d’origine)<br>
+         <code>@synapxlab/cookie-consent</code>  &nbsp;:
+        <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-consent</a>.
+      </p>
+      <ul>
+        <li>Objectif : <strong>être la plus légère possible</strong> (pas de fonctions additionnelles).</li>
+        <li><strong>Aucun logging intégré</strong> (pas de journaux serveur, pas d’ID device, pas d’API).</li>
+        <li>Stockage local uniquement via <code>localStorage</code> (clé <code>politecookiebanner</code>).</li>
+      </ul>
+      <div class="callout callout-danger" role="alert" aria-live="polite">
+        <strong>Conformité RGPD :</strong> la preuve du consentement (journalisation, timestamp, version de politique, etc.)
+        n’est <u>pas</u> gérée par cette version. <br>
+        <strong>Vous devez</strong> mettre en place votre propre mécanisme de <em>logging de consentement</em> côté serveur.
+      </div>
+    </section>
+
+
+    <section id="installation">
+      <h2>Installation</h2>
+
+      <details id="inst-npm" class="acc" open>
+        <summary><svg class="icon" aria-hidden="true"><use href="#ico-npm"/></svg> Via npm / yarn / pnpm</summary>
+        <div class="acc-body">
+          <pre><code>npm install @synapxlab/cookie-core
+# ou
+yarn add @synapxlab/cookie-core
+# ou
+pnpm add @synapxlab/cookie-core</code></pre>
+          <p class="small">Dans votre bundle (ex. <code>src/js/bundle.js</code>) :</p>
+          <pre><code>import '@synapxlab/cookie-core'; // charge la bannière (version light)</code></pre>
+        </div>
+      </details>
+
+      <details id="inst-script" class="acc">
+        <summary><svg class="icon" aria-hidden="true"><use href="#ico-code"/></svg> Via balise &lt;script&gt; HTML</summary>
+        <div class="acc-body">
+          <p class="small">Placez le script <strong>avant</strong> votre JS principal :</p>
+          <pre><code>&lt;!-- CDN --&gt;
+&lt;script src="https://unpkg.com/@synapxlab/cookie-core/dist/cookie.js"&gt;&lt;/script&gt;
+
+&lt;!-- Ou en local --&gt;
+&lt;script src="/assets/js/cookie.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </details>
+
+      <p class="small"><a href="https://synapx.fr/sdk/cookie/" rel="noopener">Documentation complète</a></p>
+    </section>
+
+
+
+
+
+
+    <section id="utilisation">
+      <h2>Utilisation & API</h2>
+      <p>
+        La bannière est injectée au chargement. Les catégories sont <strong>cachées par défaut</strong> et
+        s’affichent quand l’utilisateur clique sur <em>«&nbsp;Les préférences&nbsp;»</em>.
+        Les choix sont stockés dans <code>localStorage</code> (clé <code>politecookiebanner</code>).
+      </p>
+
+      <p>Ajoutez dans le footer de votre page :</p>
+      <pre><code>&lt;div id="openpolitecookie" class="credits"&gt;
+  &lt;a href="#"&gt;[Politique en matière de cookies]&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>API minimale</h3>
+      <pre><code>// Ouvrir la bannière (showPrefs = true ⇒ onglet Préférences directement visible)
+window.CookieConsent.open(true);
+
+// Effacer les préférences et rouvrir en mode Préférences
+window.CookieConsent.reset();
+
+// Récupérer les préférences (objet ou null)
+const prefs = window.CookieConsent.getPreferences();
+
+// Vérifier un consentement spécifique (ex. 'statistics', 'marketing', 'cookies')
+const ok = window.CookieConsent.hasConsent('statistics');</code></pre>
+
+      <p class="note">Clé de stockage : <code>localStorage['politecookiebanner']</code>.</p>
+
+      <h3>Outils de test rapide</h3>
+      <div class="actions-consent">
+        <button class="btn" id="btn-reset-consent">Effacer le consentement</button>
+        <button class="btn" id="btn-open-consent">Ouvrir la fenêtre de préférences</button>
+      </div>
+      <p class="note">
+        “Effacer le consentement” supprime les préférences (localStorage).  
+        “Ouvrir la fenêtre de préférences” affiche la bannière en mode <em>Préférences</em>.
+      </p>
+
+      <div class="callout callout-danger" role="alert">
+        <strong>RÈGLE D’OR :</strong> tant que l’utilisateur <em>n’a pas consenti</em> à la catégorie concernée,
+        <u>ne chargez pas</u> les <strong>scripts tiers</strong> (GA, pixels, chat, maps…) et
+        <u>ne déposez pas</u> leurs cookies.
+        <br><br>
+        ✅ Strictement nécessaire → toujours actif (non refusables).<br>
+        ❌ Statistiques / Marketing refusés → <strong>rien ne doit être chargé</strong>.
+      </div>
+
+      <h3>Exemple : charger GA uniquement si “statistics” est consenti</h3>
+      <pre><code>
+
+
+function loadGoogleAnalytics() {
+  console.log('Google Analytics chargé');
+  Exemple d’intégration GA :
+  const script = document.createElement('script');
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VOTRE-ID';
+  script.async = true;
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-VOTRE-ID', {
+   anonymize_ip: true,
+   cookie_flags: 'SameSite=None;Secure'
+  });
+}
+
+
+        const startWithPrefs = (prefs) =&gt; {
+  console.log('Préférences:', prefs);
+
+  if (prefs?.statistics) {
+    // loadGoogleAnalytics();
+  }
+  if (prefs?.marketing) {
+    // loadMarketingPixels();
+  }
+  if (prefs?.cookies) {
+    // enableFunctionalCookies();
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () =&gt; {
+  if (window.CookieConsent) {
+    const prefs = window.CookieConsent.getPreferences();
+    if (prefs) startWithPrefs(prefs);
+  }
+  document.addEventListener('cookieConsentChanged', (e) =&gt; {
+    startWithPrefs(e.detail.preferences);
+  });
+
+  // Boutons de test
+  document.getElementById('btn-reset-consent')?.addEventListener('click', () =&gt; {
+    window.CookieConsent.reset();
+  });
+  document.getElementById('btn-open-consent')?.addEventListener('click', () =&gt; {
+    window.CookieConsent.open(true);
+  });
+});</code></pre>
+    </section>
+
+
+
+
+    <section id="demo">
+      <h2>Exemple de page (démo)</h2>
+      <pre><code>&lt;!doctype html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+    &lt;title&gt;Gérer le consentement aux cookies&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;footer&gt;
+      &lt;div id="openpolitecookie"&gt;&lt;a href="#"&gt;[Politique en matière de cookies]&lt;/a&gt;&lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- IMPORTANT : la bannière avant votre JS applicatif --&gt;
+    &lt;script src="/assets/js/cookie.js"&gt;&lt;/script&gt;
+    &lt;script src="/assets/js/bundle.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+    <section id="license">
+      <h2>Licence</h2>
+      <p><strong>MIT</strong> — utilisez, modifiez, redistribuez librement. Merci de conserver la mention de licence.</p>
+      <p class="note">
+        Source <strong>cookie-core (light)</strong> : <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-core</a><br>
+        Projet d’origine <strong>cookie-core</strong> : <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-consent</a>.<br>
+        Contributions et suggestions bienvenues !
+      </p>
+    </section>
+  </main>
+</main>
+<footer class="site-footer">
+  <div class="copyright">
+    © Copyright <strong><span>Gérer le consentement aux cookies</span></strong>. All Rights Reserved
+  </div>
+  <div id="openpolitecookie" class="credits">
+    &nbsp;<a href="#">[Politique en matière de cookies]</a>&nbsp;
+  </div>
+  <div class="credits"> Web Development , Designed by <a href="https://lockness-informatique.fr/">[Synapx.fr]</a>  </div>
+</footer>
+<script src="/assets/js/bundle.js"></script>
+</body>
+</html>

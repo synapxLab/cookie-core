@@ -1,27 +1,31 @@
 # 🍪 Cookie Banner Core (Light)
 
-> Bannière cookies RGPD minimaliste, gratuite et open source. Version light : **aucune télémétrie, aucun logging intégré**. À vous de gérer la preuve de consentement.
+> Minimalist, free and open source GDPR cookie banner. Light version: **no telemetry, no built-in logging**. You manage the consent proof yourself.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm version](https://img.shields.io/npm/v/@synapxlab/cookie-core.svg)](https://www.npmjs.com/package/@synapxlab/cookie-core)
 
-## 📋 À propos
+**[🇫🇷 Version française](./README.fr.md)**
 
-**Cookie Core** est la version **light** d'une solution de gestion du consentement RGPD/GDPR. Elle est conçue pour être **la plus légère possible** (18Ko) sans fonctionnalités additionnelles.
+---
 
-### Caractéristiques
+## 📋 About
 
-- ✅ **Ultra légère** : 18Ko minifiée
-- ✅ **Aucun logging intégré** : pas de journaux serveur, pas d'ID device, pas d'API
-- ✅ **Stockage local uniquement** : utilise `localStorage` (clé `politecookiebanner`)
-- ✅ **Gratuit et open source** : licence MIT
-- ✅ **Conforme RGPD** : gestion des catégories de consentement
+**Cookie Core** is the **light version** of a GDPR/RGPD consent management solution. It's designed to be **as lightweight as possible** (18KB) without additional features.
 
-### ⚠️ Important : Conformité RGPD
+### Features
 
-La preuve du consentement (journalisation, timestamp, version de politique, etc.) **n'est pas gérée** par cette version light.
+- ✅ **Ultra lightweight**: 18KB minified
+- ✅ **No built-in logging**: no server logs, no device ID, no API
+- ✅ **Local storage only**: uses `localStorage` (key `politecookiebanner`)
+- ✅ **Free and open source**: MIT license
+- ✅ **GDPR compliant**: consent category management
 
-**Vous devez** mettre en place votre propre mécanisme de *logging de consentement* côté serveur pour être pleinement conforme au RGPD.
+### ⚠️ Important: GDPR Compliance
+
+Consent proof (logging, timestamp, policy version, etc.) **is not managed** by this light version.
+
+**You must** implement your own server-side *consent logging* mechanism to be fully GDPR compliant.
 
 ---
 
@@ -31,89 +35,89 @@ La preuve du consentement (journalisation, timestamp, version de politique, etc.
 
 ```bash
 npm install @synapxlab/cookie-core
-# ou
+# or
 yarn add @synapxlab/cookie-core
-# ou
+# or
 pnpm add @synapxlab/cookie-core
 ```
 
-Dans votre bundle (ex. `src/js/bundle.js`) :
+In your bundle (e.g., `src/js/bundle.js`):
 
 ```javascript
-import '@synapxlab/cookie-core'; // charge la bannière (version light)
+import '@synapxlab/cookie-core'; // loads the banner (light version)
 ```
 
-### Via balise `<script>` HTML
+### Via HTML `<script>` tag
 
-Placez le script **avant** votre JS principal :
+Place the script **before** your main JS:
 
 ```html
 <!-- CDN -->
 <script src="https://unpkg.com/@synapxlab/cookie-core/dist/cookie.js"></script>
 
-<!-- Ou en local -->
+<!-- Or local -->
 <script src="/assets/js/cookie.js"></script>
 ```
 
 ---
 
-## 💻 Utilisation
+## 💻 Usage
 
-La bannière est injectée automatiquement au chargement. Les catégories sont **cachées par défaut** et s'affichent quand l'utilisateur clique sur *« Les préférences »*.
+The banner is automatically injected on page load. Categories are **hidden by default** and appear when the user clicks on *"Preferences"*.
 
-### Intégration de base
+### Basic Integration
 
-Ajoutez dans le footer de votre page :
+Add this to your page footer:
 
 ```html
 <div id="openpolitecookie" class="credits">
-  <a href="#">[Politique en matière de cookies]</a>
+  <a href="#">[Cookie Policy]</a>
 </div>
 ```
 
-### API JavaScript
+### JavaScript API
 
 ```javascript
-// Ouvrir la bannière (showPrefs = true ⇒ onglet Préférences directement visible)
+// Open the banner (showPrefs = true ⇒ Preferences tab directly visible)
 window.CookieConsent.open(true);
 
-// Effacer les préférences et rouvrir en mode Préférences
+// Clear preferences and reopen in Preferences mode
 window.CookieConsent.reset();
 
-// Récupérer les préférences (objet ou null)
+// Get preferences (object or null)
 const prefs = window.CookieConsent.getPreferences();
 
-// Vérifier un consentement spécifique (ex. 'statistics', 'marketing', 'cookies')
+// Check specific consent (e.g., 'statistics', 'marketing', 'cookies')
 const ok = window.CookieConsent.hasConsent('statistics');
 ```
 
-**Clé de stockage :** `localStorage['politecookiebanner']`
+**Storage key:** `localStorage['politecookiebanner']`
 
 ---
 
-## 📦 Exemple complet
+## 📦 Complete Example
 
-### Charger Google Analytics uniquement si consentement "statistics"
+### Load Google Analytics only if "statistics" consent is given
 
 ```javascript
 function loadGoogleAnalytics() {
-  console.log('Google Analytics chargé');
+  console.log('Google Analytics loaded');
   const script = document.createElement('script');
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VOTRE-ID';
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID';
   script.async = true;
   document.head.appendChild(script);
   
   window.dataLayer = window.dataLayer || [];
   function gtag(){ window.dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', 'G-VOTRE-ID', {
+  gtag('config', 'G-YOUR-ID', {
     anonymize_ip: true,
     cookie_flags: 'SameSite=None;Secure'
   });
 }
 
 const startWithPrefs = (prefs) => {
-  console.log('Préférences:', prefs);
+  console.log('Preferences:', prefs);
 
   if (prefs?.statistics) {
     loadGoogleAnalytics();
@@ -132,31 +136,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prefs) startWithPrefs(prefs);
   }
   
-  // Écouter les changements de consentement
+  // Listen to consent changes
   document.addEventListener('cookieConsentChanged', (e) => {
     startWithPrefs(e.detail.preferences);
   });
 });
 ```
 
-### Page HTML complète
+### Complete HTML page
 
 ```html
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gérer le consentement aux cookies</title>
+    <title>Cookie Consent Management</title>
   </head>
   <body>
     <footer>
       <div id="openpolitecookie">
-        <a href="#">[Politique en matière de cookies]</a>
+        <a href="#">[Cookie Policy]</a>
       </div>
     </footer>
 
-    <!-- IMPORTANT : la bannière avant votre JS applicatif -->
+    <!-- IMPORTANT: banner script before your application JS -->
     <script src="/assets/js/cookie.js"></script>
     <script src="/assets/js/bundle.js"></script>
   </body>
@@ -165,37 +169,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ---
 
-## ⚖️ Règle d'or RGPD
+## ⚖️ GDPR Golden Rule
 
-Tant que l'utilisateur **n'a pas consenti** à la catégorie concernée :
+As long as the user **has not consented** to the relevant category:
 
-- ❌ **Ne chargez pas** les scripts tiers (GA, pixels, chat, maps…)
-- ❌ **Ne déposez pas** leurs cookies
+- ❌ **Do not load** third-party scripts (GA, pixels, chat, maps…)
+- ❌ **Do not set** their cookies
 
-**Catégories :**
-- ✅ **Strictement nécessaire** → toujours actif (non refusables)
-- ⚠️ **Statistiques / Marketing refusés** → rien ne doit être chargé
-
----
-
-## 📄 Licence
-
-**MIT** — Utilisez, modifiez, redistribuez librement. Merci de conserver la mention de licence.
+**Categories:**
+- ✅ **Strictly necessary** → always active (cannot be refused)
+- ⚠️ **Statistics / Marketing refused** → nothing should be loaded
 
 ---
 
-## 🔗 Liens
+## 📄 License
 
-- **Repository** : [github.com/synapxLab/cookie-core](https://github.com/synapxLab/cookie-core)
-- **Projet d'origine** : [github.com/synapxLab/cookie-consent](https://github.com/synapxLab/cookie-consent)
-- **Documentation** : [synapx.fr/sdk/cookie/](https://synapx.fr/sdk/cookie/)
+**MIT** — Use, modify, and redistribute freely. Please keep the license notice.
 
 ---
 
-## 🤝 Contributions
+## 🔗 Links
 
-Les contributions et suggestions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+- **Repository**: [github.com/synapxLab/cookie-core](https://github.com/synapxLab/cookie-core)
+- **Original project**: [github.com/synapxLab/cookie-consent](https://github.com/synapxLab/cookie-consent)
+- **Documentation**: [synapx.fr/sdk/cookie/](https://synapx.fr/sdk/cookie/)
 
 ---
 
-**Développé par** [Synapx.fr](https://lockness-informatique.fr/) | © All Rights Reserved
+## 🤝 Contributing
+
+Contributions and suggestions are welcome! Feel free to open an issue or pull request.
+
+---
+
+**Developed by** [Synapx.fr](https://lockness-informatique.fr/) | © All Rights Reserved

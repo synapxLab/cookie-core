@@ -1,6 +1,6 @@
 {
   "name": "@synapxlab/cookie-core",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Bannière cookies RGPD ultra-légère (18Ko) - Version light sans logging intégré",
   "main": "dist/cookie.js",
   "files": [

@@ -1,39 +1,18 @@
-# Fichiers de développement à exclure de la publication npm
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Bundle complet (pour téléchargement GitHub uniquement, pas pour npm)
-dist/bundle.js
+# Build outputs
+dist/
+*.tgz
 
-# Sources (non nécessaires, seul dist/cookie.js est publié)
-src/
-
-# Configuration de build
-webpack.config.js
-.eslintrc.js
-.eslintrc.json
-.prettierrc
-
-# Tests
-test/
-tests/
-__tests__/
-*.test.js
-*.spec.js
-
-# Documentation de développement
-httpdocs/
-examples/
-docs/
-
-# Git
-.git/
-.gitignore
-.gitattributes
-
-# CI/CD
-.github/
-.gitlab-ci.yml
-.travis.yml
-azure-pipelines.yml
+# Development
+.DS_Store
+.env
+.env.local
+.env.*.local
 
 # IDE
 .vscode/
@@ -42,25 +21,17 @@ azure-pipelines.yml
 *.swo
 *~
 
-# OS
-.DS_Store
-Thumbs.db
-
 # Logs
-logs/
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
-# Dependencies
-node_modules/
+# Testing
+coverage/
+.nyc_output/
 
-# Cache
-.cache/
-.npm/
-.eslintcache
-
-# Temporary
+# Temporary files
 *.tmp
-.temp/
+*.temp
+.cache/

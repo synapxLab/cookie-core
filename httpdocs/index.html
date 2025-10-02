@@ -45,7 +45,6 @@
         <li><a href="#cookie-core">À propos</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#utilisation">Utilisation</a></li>
-        <li><a href="#demo">Exemple de page (démo)</a></li>
         <li><a href="#license">Licence</a></li>
       </ul>
     </nav>
@@ -54,17 +53,32 @@
       <h2>À propos</h2>
       <p>
         Cette page documente la <strong>version light</strong> du projet : (référentiel d’origine)<br>
-         <code>@synapxlab/cookie-consent</code>  &nbsp;:
-        <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-consent</a>.
+
+
+      <div class="callout callout-info" role="alert" aria-live="polite">
+        <strong>@synapxlab/cookie-consent :</strong> (journalisation, timestamp, version de politique, etc.)
+<br>
+        Code source : <a href="https://github.com/synapxlab/cookie-consent">GitHub</a> <br>
+        Package : <a href="https://www.npmjs.com/package/@synapxlab/cookie-consent">npm</a><br>        
+      </div>
+
+  <p><a href="https://synapx.fr/sdk/Cookie_consent/">Documentation complète : https://synapx.fr/sdk/Cookie_consent/</a></p>
+
       </p>
+
+      <h3>Cette version a pour objectif</h3>
       <ul>
         <li>Objectif : <strong>être la plus légère possible</strong> (pas de fonctions additionnelles).</li>
         <li><strong>Aucun logging intégré</strong> (pas de journaux serveur, pas d’ID device, pas d’API).</li>
         <li>Stockage local uniquement via <code>localStorage</code> (clé <code>politecookiebanner</code>).</li>
       </ul>
+
+
+
+
       <div class="callout callout-danger" role="alert" aria-live="polite">
         <strong>Conformité RGPD :</strong> la preuve du consentement (journalisation, timestamp, version de politique, etc.)
-        n’est <u>pas</u> gérée par cette version. <br>
+       <u>ne sont pas</u> gérée par cette version. <br>
         <strong>Vous devez</strong> mettre en place votre propre mécanisme de <em>logging de consentement</em> côté serveur.
       </div>
     </section>
@@ -92,19 +106,11 @@ pnpm add @synapxlab/cookie-core</code></pre>
           <p class="small">Placez le script <strong>avant</strong> votre JS principal :</p>
           <pre><code>&lt;!-- CDN --&gt;
 &lt;script src="https://unpkg.com/@synapxlab/cookie-core/dist/cookie.js"&gt;&lt;/script&gt;
-
 &lt;!-- Ou en local --&gt;
 &lt;script src="/assets/js/cookie.js"&gt;&lt;/script&gt;</code></pre>
         </div>
       </details>
-
-      <p class="small"><a href="https://synapx.fr/sdk/cookie/" rel="noopener">Documentation complète</a></p>
     </section>
-
-
-
-
-
 
     <section id="utilisation">
       <h2>Utilisation & API</h2>
@@ -210,46 +216,32 @@ document.addEventListener('DOMContentLoaded', () =&gt; {
 
 
 
-    <section id="demo">
-      <h2>Exemple de page (démo)</h2>
-      <pre><code>&lt;!doctype html&gt;
-&lt;html lang="fr"&gt;
-  &lt;head&gt;
-    &lt;meta charset="utf-8" /&gt;
-    &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
-    &lt;title&gt;Gérer le consentement aux cookies&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;footer&gt;
-      &lt;div id="openpolitecookie"&gt;&lt;a href="#"&gt;[Politique en matière de cookies]&lt;/a&gt;&lt;/div&gt;
-    &lt;/footer&gt;
 
-    &lt;!-- IMPORTANT : la bannière avant votre JS applicatif --&gt;
-    &lt;script src="/assets/js/cookie.js"&gt;&lt;/script&gt;
-    &lt;script src="/assets/js/bundle.js"&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-    </section>
+
+
+
     <section id="license">
       <h2>Licence</h2>
-      <p><strong>MIT</strong> — utilisez, modifiez, redistribuez librement. Merci de conserver la mention de licence.</p>
+      <p><strong>MIT</strong> — Utilisez, modifiez, redistribuez librement. Merci de conserver la mention de licence.</p>
       <p class="note">
-        Source <strong>cookie-core (light)</strong> : <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-core</a><br>
-        Projet d’origine <strong>cookie-core</strong> : <a href="https://github.com/synapxLab/cookie-core" rel="noopener">github.com/synapxLab/cookie-consent</a>.<br>
+        Code source : <a href="https://github.com/synapxlab/cookie-consent">GitHub</a> •
+        Package : <a href="https://www.npmjs.com/package/@synapxlab/cookie-consent">npm</a><br>
         Contributions et suggestions bienvenues !
       </p>
-    </section>
   </main>
-</main>
-<footer class="site-footer">
-  <div class="copyright">
-    © Copyright <strong><span>Gérer le consentement aux cookies</span></strong>. All Rights Reserved
-  </div>
-  <div id="openpolitecookie" class="credits">
-    &nbsp;<a href="#">[Politique en matière de cookies]</a>&nbsp;
-  </div>
-  <div class="credits"> Web Development , Designed by <a href="https://lockness-informatique.fr/">[Synapx.fr]</a>  </div>
-</footer>
-<script src="/assets/js/bundle.js"></script>
+
+  <footer class="site-footer">
+    <div class="copyright">
+      © Copyright 2025 <strong>Cookie Consent by SynapxLab</strong>. All Rights Reserved
+    </div>
+    <div id="openpolitecookie" class="credits">
+      <a href="#">Gérer les cookies</a>
+    </div>
+    <div class="credits">
+      Designed by <a href="https://synapx.fr/">Synapx.fr</a>
+    </div>
+  </footer>
+
+  <script src="/assets/js/bundle.js"></script>
 </body>
 </html>

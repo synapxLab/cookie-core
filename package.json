@@ -1,7 +1,7 @@
 {
   "name": "@synapxlab/cookie-core",
-  "version": "1.0.0",
-  "description": "Bannière de consentement cookies RGPD ultra-légère (18KB) - Version light sans logging intégré (JS pur, zéro dépendance)",
+  "version": "0.0.4",
+  "description": "Bannière cookies RGPD ultra-légère (18Ko) - Version light sans logging intégré",
   "main": "dist/cookie.js",
   "files": [
     "dist/cookie.js",
@@ -31,25 +31,25 @@
     "url": "https://github.com/synapxLab/cookie-core/issues"
   },
   "author": {
-    "name": "Laurent Lockness",
-    "email": "synapxLab@lockness-informatique.fr",
+    "name": "L. Lockness",
+    "email": "contact@synapx.fr",
     "url": "https://synapx.fr"
   },
   "license": "MIT",
   "engines": {
     "node": ">=14.0.0"
   },
-"scripts": {
-  "dev": "webpack serve --mode development --open",
-  "build": "webpack --mode production",
-  "build:npm": "npm run build && rm -f dist/bundle.js",
-  "watch": "webpack --mode development --watch",
-  "test": "echo 'Tests à venir' && exit 0",
-  "prepublishOnly": "npm run build:npm",
-  "lint": "eslint src --ext .js",
-  "check": "npm run lint && npm audit",
-  "clean": "rm -rf dist httpdocs/assets/js"
-},
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "build:npm": "npm run build && rm -f dist/bundle.js",
+    "watch": "webpack --mode development --watch",
+    "test": "echo 'Tests à venir' && exit 0",
+    "prepublishOnly": "npm run build:npm",
+    "lint": "eslint src --ext .js",
+    "check": "npm run lint && npm audit",
+    "clean": "rm -rf dist httpdocs/assets/js"
+  },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "css-loader": "^7.1.2",
@@ -65,5 +65,8 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/synapxLab"
+  },
+  "dependencies": {
+    "cookie-core": "^0.0.4"
   }
 }

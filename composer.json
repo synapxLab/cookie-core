@@ -4,7 +4,7 @@
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "cookie-consent",
+        "cookie-core",
         "rgpd",
         "gdpr",
         "cookie-banner",
@@ -16,8 +16,8 @@
     "homepage": "https://github.com/synapxLab/cookie-core",
     "authors": [
         {
-            "name": "Laurent Lockness",
-            "email": "synapxLab@lockness-informatique.fr",
+            "name": "L. Lockness",
+            "email": "contact@synapx.fr",
             "homepage": "https://synapx.fr",
             "role": "Developer"
         }
